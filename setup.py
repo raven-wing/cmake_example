@@ -5,6 +5,7 @@ import subprocess
 import setuptools
 from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext
+from distutils import sysconfig
 
 # Convert distutils Windows platform specifiers to CMake -A arguments
 PLAT_TO_CMAKE = {
