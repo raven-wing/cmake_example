@@ -2,7 +2,7 @@
 import os
 import sys
 import subprocess
-
+import setuptools
 from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext
 
@@ -47,6 +47,15 @@ class CMakeBuild(build_ext):
             "-DEXAMPLE_VERSION_INFO={}".format(self.distribution.get_version()),
             "-DCMAKE_BUILD_TYPE={}".format(cfg),  # not used on MSVC, but no harm
         ]
+        
+        print("exec")
+        print(sys.executable)
+        print("python_inc")
+        print(sysconfig.get_python_inc())
+        print("libdir")
+        print(sysconfig.get_config_var('LIBDIR'))
+        
+        
         build_args = []
 
         if self.compiler.compiler_type != "msvc":
